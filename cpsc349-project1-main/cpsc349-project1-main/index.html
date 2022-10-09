@@ -1,0 +1,40 @@
+---
+layout: base
+title: Home
+pagination:
+    data: photos.xxxmtks.media
+    size: 18
+    alias: photo
+---
+<header>
+    <h1>{{ title}} </h1>
+
+</header>
+<main>
+    <ul>
+        {% for photo in pagination.items -%}
+        <li style="display:inline"> <a href="/{{ photo.id }}/">
+            <img src="{{photo.src.tiny}}" alt="{{photo.alt}}"></a>
+        </li>
+        {% endfor -%}
+    </ul>
+        <nav>
+            {% if pagination.href.previous %}
+            <a style="padding-left:38px" href="{{pagination.href.previous}}"><b>Previous Page</b></a></li>
+            {% else %}
+            &nbsp;
+            {% endif %}
+        
+            {% if pagination.href.next %}
+            <a style="padding-right:190px" href="{{pagination.href.next}}"><b>Next Page</b></a>
+            {% endif %}
+        </nav>
+        </main>
+<footer>
+    <hr>
+    <p>
+        <small>
+            <a href="https://www.pexels.com">Photos provided by Pexels</a>
+        </small>
+    </p>
+</footer>
